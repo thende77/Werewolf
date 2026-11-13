@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Werewolf Roles</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#14161f">
+<style>
+:root {
+    --bg: #14161f;
+    --panel: #1e2230;
+    --line: #31374d;
+    --text: #e8e6f0;
+    --dim: #9aa0b8;
+    --village: #5aa7e0;
+    --wolf: #e0645a;
+    --solo: #e0b04a;
+}
+* { box-sizing: border-box; }
+html, body {
+    margin: 0;
+    min-height: 100%;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Georgia, "Times New Roman", serif;
+}
+header {
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    padding: 16px 16px 10px;
+    border-bottom: 1px solid var(--line);
+    z-index: 2;
+}
+h1 { margin: 0; font-size: 22px; font-weight: 700; }
+.sub { color: var(--dim); font-size: 13px; margin-top: 2px; }
+main { padding: 12px 16px 40px; max-width: 640px; margin: 0 auto; }
+h2 {
+    font-size: 22px;
+    color: var(--text);
+    font-weight: 700;
+    margin: 28px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--line);
+}
+.role {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: var(--panel);
+    color: var(--text);
+    border: 1px solid var(--line);
+    border-left: 6px solid var(--village);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 0 0 8px;
+    font: inherit;
+    font-size: 18px;
+    text-align: left;
+    cursor: pointer;
+}
+.role:active { background: #2a3047; }
+.role.wolf { border-left-color: var(--wolf); }
+.role.solo { border-left-color: var(--solo); }
+.role small { color: var(--dim); font-size: 13px; margin-left: 10px; }
+.back {
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--text);
+    border-radius: 8px;
+    padding: 12px 18px;
+    font: inherit;
+    font-size: 16px;
+    cursor: pointer;
+}
+.detail h1 { font-size: 30px; margin: 20px 0 4px; }
+.team { font-size: 14px; color: var(--dim); margin-bottom: 16px; }
+.detail p { font-size: 19px; line-height: 1.55; margin: 0 0 14px; }
+.tip {
+    color: var(--dim);
+    font-size: 16px !important;
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+}
+button:focus-visible { outline: 2px solid var(--solo); outline-offset: 2px; }
+.hidden { display: none; }
+</style>
+</head>
+<body>
+
+<div id="list">
+    <header>
+        <h1 id="page-title">Werewolf Roles</h1>
+        <div class="sub" id="page-sub"></div>
+    </header>
+    <main id="roles"></main>
+</div>
+
+<div id="detail" class="hidden">
+    <main class="detail">
+        <button class="back" id="back">← Back</button>
+        <h1 id="dname"></h1>
+        <div class="team" id="dteam"></div>
+        <p id="ddesc"></p>
+        <p class="tip" id="dtip"></p>
+    </main>
+</div>
+
+<script src="roles.js"></script>
+<script src="app.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js');
+  }
+</script>
+
+</body>
+</html>
