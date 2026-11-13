@@ -94,6 +94,12 @@ var ROLE_DATA = {
                     ability: "",
                     timing: "Night",
                     winCondition: ""
+                },
+                {
+                    id: "villager",
+                    name: "Villager",
+                    team: "village",
+                    description: "The villager does nothing (skill issue). Try to vote out the Werewolves to win."
                 }
             ]
         },
