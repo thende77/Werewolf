@@ -1,4 +1,3 @@
-
 var CACHE_NAME = "werewolf-pwa-v2";
 
 var APP_FILES = [
@@ -8,8 +7,7 @@ var APP_FILES = [
     "./roles.js",
     "./app.js",
     "./manifest.json",
-    "./icons/icon-192.jpg",
-    "./icons/icon-512.jpg"
+    "./werewolf.jpg"
 ];
 
 self.addEventListener("install", function (event) {
